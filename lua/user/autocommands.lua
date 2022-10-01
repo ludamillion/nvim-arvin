@@ -38,6 +38,13 @@ vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
   end,
 })
 
+-- Open all folds by default
+vim.api.nvim_create_autocmd({ "BufReadPost,FileReadPost" }, {
+  callback = function()
+    vim.cmd "normal zR"
+  end,
+})
+
 -- Highlight Yanked Text
 vim.api.nvim_create_autocmd({ "TextYankPost" }, {
   callback = function()
